@@ -39,9 +39,6 @@ def uf(ulen,stw,lstwi):
 				exDEC = re.search('''([Cc][Oo][Nn][Tt][Ee][Nn][Tt])\s*=(.*)\s*''',DescS).group(2)
 				if exDEC != '''"">''':
 					print (Fore.GREEN + searchkeywords[count]+' - - - YES')
-					OuF = open('telefind_output.txt', 'w+')
-					OuF.write(searchkeywords[count]+'\n')
-					OuF.close()
 				else:
 					print (Fore.YELLOW + searchkeywords[count]+' - - - NO')
 		except Exception as e:
@@ -62,9 +59,6 @@ def uf(ulen,stw,lstwi):
 						exDEC = re.search('''([Cc][Oo][Nn][Tt][Ee][Nn][Tt])\s*=(.*)\s*''',DescS).group(2)
 						if exDEC != '''"">''':
 							print (Fore.GREEN + stw+searchkeywords[lokount]+' - - - YES')
-							OuF = open('telefind_output.txt', 'w+')
-							OuF.write(stw+searchkeywords[lokount]+'\n')
-							OuF.close()
 						else:
 							print (Fore.YELLOW + stw+searchkeywords[lokount]+' - - - NO')
 			except Exception as e:
