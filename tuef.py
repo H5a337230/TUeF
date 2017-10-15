@@ -52,7 +52,11 @@ def uf(ulen,stw,lstwi):
 			sufflen = ulen - lstwi
 			try:
 				for sufcount in range(sufflen+1):
-					searchkeywords = [''.join(j) for j in itertools.product(alphabets, repeat = sufcount)]
+					if lstwi < 5:
+						dlen = 5 - lstwi
+						searchkeywords = [''.join(j) for j in itertools.product(alphabets, repeat = sufcount+dlen)]
+					else:
+						searchkeywords = [''.join(j) for j in itertools.product(alphabets, repeat = sufcount)]
 					for lokount in range(len(searchkeywords)):
 						response = requests.get('https://t.me/'+stw+searchkeywords[lokount], timeout=5)
 						DescS = re.search('''([Mm][Ee][Tt][Aa] [Pp][Rr][Oo][Pp][Ee][Rr][Tt][Yy])\s*=("[Oo][Gg]:[Dd][Ee][Ss][Cc][Rr][Ii][Pp][Tt][Ii][Oo][Nn]" [Cc][Oo][Nn][Tt][Ee][Nn][Tt]=.*)''',response.text).group(2)
